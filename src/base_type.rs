@@ -30,7 +30,7 @@ mod b_types {
         /// 二进制 以0b为前缀 示例: 0b1100_0010
         Binary,
         /// 字节 只能是u8 以b为前缀 示例: b'A'
-        Byte
+        Byte,
     }
 
     /// float_point 浮点类型
@@ -61,7 +61,7 @@ mod b_types {
         /// 这就是一个包含两个不同数据类型的元组
         t: (i32, f64),
         /// 这是一个包含三个不同数据类型的元组
-        tt: (i32, f32, u8)
+        tt: (i32, f32, u8),
     }
 
     /// 数组 长度固定 数组大小在编译时就被确定
@@ -78,7 +78,7 @@ mod b_types {
     struct Ex {
         n: u8,
     }
-    
+
     /// 自定义类型
     /// enumerations 枚举类型
     enum In {
@@ -135,7 +135,7 @@ mod b_types {
         let byte = b'A';
 
         println!("{:#?}", decimal);
-        println!("{:#?}", hex);
+        println!("{:#?}, {:#?}", hex, 0xffff);
         println!("{:#?}", octal);
         println!("{:#?}", binary);
         println!("{:#?}", byte);
@@ -167,7 +167,6 @@ mod b_types {
         assert_eq!(t, true);
         assert_ne!(f, true);
     }
-
 
     /// 字符示例测试
     #[test]

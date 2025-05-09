@@ -24,7 +24,7 @@ mod b_flow_control {
         // 多条件判断
         // 使用 && 和 ||
         if b < 150 && b > 90 {
-            println!("I DONT KNOW")    
+            println!("I DONT KNOW")
         }
 
         // 内嵌判断
@@ -37,11 +37,7 @@ mod b_flow_control {
         }
 
         // if 赋值
-        let c = if b > 50 {
-            80
-        } else {
-            130
-        };
+        let c = if b > 50 { 80 } else { 130 };
     }
 
     /// match 匹配表达式
@@ -58,10 +54,10 @@ mod b_flow_control {
         match light {
             Traffical::YELLOW => {
                 println!("SLOW")
-            },
+            }
             Traffical::GREEN => {
                 println!("PASS")
-            },
+            }
             Traffical::RED => println!("STOP"),
         }
 
@@ -69,16 +65,14 @@ mod b_flow_control {
 
         // match 内嵌
         match maybe {
-            Some(lt) => {
-                match lt {
-                    Traffical::YELLOW => {
-                        println!("SLOW")
-                    },
-                    Traffical::GREEN => {
-                        println!("PASS")
-                    },
-                    Traffical::RED => println!("STOP"),
+            Some(lt) => match lt {
+                Traffical::YELLOW => {
+                    println!("SLOW")
                 }
+                Traffical::GREEN => {
+                    println!("PASS")
+                }
+                Traffical::RED => println!("STOP"),
             },
             None => println!("HELL NO"),
         }
@@ -119,7 +113,6 @@ mod b_flow_control {
             println!("{}", counter);
 
             counter -= 1;
-            
         }
 
         println!("LEFTOFF");
