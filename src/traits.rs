@@ -34,6 +34,8 @@ mod traits {
     /// 实现标准库 Display trait
     impl<T: Debug + Display> Display for Obj<T> {
         fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+            // 自定义处理
+            // ******
             write!(f, "(name: {}, value: {})", self.name, self.name)
         }
     }
@@ -57,14 +59,14 @@ mod traits {
         /// 关联类型
         type Item;
         /// 可以声明多个关联类型
-        type output;
+        type Output;
         
         fn cmp(&self, other: &Rhs) -> Self::Item;
     }
 
     impl Compare<Rectangle> for Rectangle {
         type Item = bool;
-        type output = bool;
+        type Output = bool;
         fn cmp(&self, other: &Rectangle) -> Self::Item {
             self.width * self.height > other.width * other.height
         }
