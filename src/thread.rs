@@ -10,6 +10,7 @@ mod thread {
         }
     }
 
+    /// 线程 join 的调用时机
     #[test]
     fn test_base_thread() {
         // 使用闭包
@@ -31,6 +32,7 @@ mod thread {
         // 线程执行完成后 主线程才开始循环体
     }
 
+    /// 线程 join 的调用时机
     #[test]
     fn test_base1_thread() {
         // 使用闭包
@@ -50,6 +52,7 @@ mod thread {
         t.join().unwrap();
     }
 
+    /// 线程 sleep
     #[test]
     fn test_base2_thread() {
         // 使用闭包
@@ -73,6 +76,7 @@ mod thread {
         // 执行结果会有交叉现象
     }
 
+    /// 使用函数代替闭包函数
     #[test]
     fn test_base3_thread() {
         // 使用函数
@@ -85,6 +89,22 @@ mod thread {
         }
         
         // 使用 join 函数等待线程执行完成
+        t.join().unwrap();
+    }
+
+    /// 线程使用外部对象 move 关键字
+    #[test]
+    fn test_base4_thread() {
+        // 所有权
+        let arr = vec![1, 2, 3];
+        // 线程使用数组
+        let t = thread::spawn(move || {
+            println!("{:#?}", arr);
+        });
+
+        // 无法 drop， 没有所有权
+        // let _ = drop(arr);
+
         t.join().unwrap();
     }
 }
